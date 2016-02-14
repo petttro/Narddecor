@@ -1,0 +1,37 @@
+﻿@model  IEnumerable<Narddecor.ViewModels.Product.CategoryViewModel>
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+<h2>Список продуктов по категориям</h2>
+<hr />
+
+@foreach (var category in @Model)
+{
+	<h4>@category.CategoryName</h4>
+
+	<table class="table">
+		
+		@foreach (var product in category.Products)
+		{
+			<tr>
+				<td>@product.Color</td>
+				<td>@product.UniqueName</td>
+				<td><a asp-action="Edit"
+					   asp-controller="Product"
+					   asp-route-uniquename="@product.UniqueName">изменить</a></td>
+			</tr>
+		}
+	</table>
+}
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

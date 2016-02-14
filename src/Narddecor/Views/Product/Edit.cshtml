@@ -1,0 +1,76 @@
+﻿@model Narddecor.ViewModels.Product.ProductEditViewModel
+
+@{
+	ViewData["Title"] = "Редактирование";
+}
+
+<h2>Редактирование</h2>
+
+<form asp-action="Edit">
+	<div class="form-horizontal">
+		<h4>@Model.Product.Color</h4>
+		<hr />
+		<div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+		<div class="form-group">
+			<label asp-for="Product.CategoryId" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<select asp-for="Product.CategoryId"
+						asp-items="@Model.Categories"
+						class="form-control"></select>
+				<span asp-validation-for="Product.CategoryId" class="text-danger" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="Product.UniqueName" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Product.UniqueName" class="form-control" />
+				<span asp-validation-for="Product.UniqueName" class="text-danger" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="Product.Description" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Product.Description" class="form-control" />
+				<span asp-validation-for="Product.Description" class="text-danger" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="Product.Color" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Product.Color" class="form-control" />
+				<span asp-validation-for="Product.Color" class="text-danger" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="Product.SortOrder" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Product.SortOrder" class="form-control" />
+				<span asp-validation-for="Product.SortOrder" class="text-danger" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="Product.ImagePath" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Product.ImagePath" class="form-control" />
+				<span asp-validation-for="Product.ImagePath" class="text-danger" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Сохранить изменения" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+</form>
+
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
